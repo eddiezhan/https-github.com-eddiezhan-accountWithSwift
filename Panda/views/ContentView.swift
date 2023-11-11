@@ -2,22 +2,33 @@
 //  ContentView.swift
 //  Panda
 //
-//  Created by 战璐 on 2023/11/7.
+//  Created by eddie.zhan on 2023/11/7.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var currentTab:String = "ExpensesView"
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        TabView(selection: $currentTab){
+            ExpensesView().tag("Expenses").tabItem {
+                Image(systemName: "creditcard.fill")
+                Text("Expenses")
+            }
+            CategorysView().tag("Categorys").tabItem {
+                Image(systemName: "list.clipboard.fill")
+                Text("Categorys")
+            }
+            
         }
-        .padding()
+        
     }
 }
+
+
+
+
 
 #Preview {
     ContentView()

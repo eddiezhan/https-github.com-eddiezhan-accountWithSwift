@@ -2,7 +2,21 @@
 //  Category.swift
 //  Panda
 //
-//  Created by 战璐 on 2023/11/9.
+//  Created by eddie.zhan on 2023/11/9.
 //
 
-import Foundation
+import SwiftData
+import SwiftUI
+
+@Model
+class Category {
+    var categoryName: String
+    
+    @Relationship(deleteRule: .cascade ,inverse: \Expense.category)
+    var expenses: [Expense]?
+    
+    init(categoryName: String) {
+        self.categoryName = categoryName
+    }
+    
+}

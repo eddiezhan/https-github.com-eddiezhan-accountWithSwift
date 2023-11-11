@@ -2,7 +2,7 @@
 //  PandaApp.swift
 //  Panda
 //
-//  Created by 战璐 on 2023/11/7.
+// 
 //
 
 import SwiftUI
@@ -13,5 +13,7 @@ struct PandaApp: App {
         WindowGroup {
             ContentView()
         }
+        // 设置容器
+        .modelContainer(for: [Expense.self, Category.self])
     }
 }

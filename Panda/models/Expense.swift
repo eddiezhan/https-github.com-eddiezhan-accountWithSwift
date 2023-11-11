@@ -2,7 +2,26 @@
 //  Expense.swift
 //  Panda
 //
-//  Created by 战璐 on 2023/11/9.
+//  Created by eddie.zhan on 2023/11/9.
 //
 
-import Foundation
+
+import SwiftUI
+import SwiftData
+
+@Model
+class Expense {
+    var title: String
+    var amount: Double
+    var subTitle: String
+    var date: Date
+    var category: Category?
+   
+    init(title: String, amount: Double, subTitle: String, date: Date, category: Category? = nil) {
+        self.title = title
+        self.amount = amount
+        self.subTitle = subTitle
+        self.date = date
+        self.category = category
+    }
+}

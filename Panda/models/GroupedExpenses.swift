@@ -2,7 +2,24 @@
 //  GroupedExpenses.swift
 //  Panda
 //
-//  Created by 战璐 on 2023/11/9.
+//  Created by eddie.zhan on 2023/11/9.
 //
 
-import Foundation
+import SwiftUI
+
+struct GroupedExpenses {
+    var id: UUID = .init()
+    var date: Date
+    var expenses: [Expense]
+    
+    var groupTitle: String{
+        let current = Calendar.current
+        if current.isDateInToday(date){
+            return "Today"
+        }else if current.isDateInYesterday(date){
+            return "Yestoday"
+        }else {
+            return date.formatted(date: .abbreviated, time: .omitted)
+        }
+    }
+}
