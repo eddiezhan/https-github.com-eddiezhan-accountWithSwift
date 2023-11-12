@@ -12,14 +12,37 @@ struct ExpensesView: View {
     
     //创建一个私有变量（花费数组），来查询全部的花费，并且按照日期倒序排序
     @Query(sort: [SortDescriptor(\Expense.date, order: .reverse)], animation: .snappy) private var allExpenses: [Expense]
-    
+    @Environment(\.modelContext) private var context
     //创建一个空的数组，类型是 分组花费
     @State private var groupedExpenses: [GroupedExpenses] = []
     @State private var addExpense: Bool = false
     var body: some View {
         NavigationStack{
             List {
-                
+                ForEach($groupedExpenses){ $group in
+                    Section(group.groupTitle){
+                        ForEach(group.expenses){ expense in
+                            GroupCardView(expense: expense)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    Button{
+                                        context.delete(expense)
+                                        withAnimation {
+                                            group.expenses.removeAll(where: {
+                                                $0.id == expense.id
+                                            })
+                                            if group.expenses.isEmpty {
+                                                groupedExpenses.removeAll(where: {
+                                                    $0.id == group.id
+                                                })
+                                            }
+                                        }
+                                    } label: {
+                                       Image(systemName: "trash")
+                                    }.tint(.red)
+                                }
+                        }
+                    }
+                }
             }.navigationTitle("Expenses")//创建一个名为Expense 的导航视图
             // 当所有花费为空，或者 组花费为空的时候， 显示一个 NO expense的图标
                 .overlay{
@@ -42,7 +65,7 @@ struct ExpensesView: View {
         }
         //使用了.onChange修饰器，监测allExpenses数组的变化，在第一次加载时，调用createGroupedExpenses方法将费用按日期进行分组。
         .onChange(of: allExpenses, initial: true){ oldValue , newValue in
-            if groupedExpenses.isEmpty {
+            if newValue.count > oldValue.count ||  groupedExpenses.isEmpty {
                 createGroupedExpenses(newValue)
             }
         }
@@ -59,7 +82,7 @@ struct ExpensesView: View {
                 // 会传递 日月年 组件给 日期
                 let dateComponments = Calendar.current.dateComponents([.day, .month, .year], from: expense.date)
                 return dateComponments
-            }            
+            }
             //sorting dictionary in descening order
             let sortedDict = groupedDict.sorted{
                 let calendar = Calendar.current

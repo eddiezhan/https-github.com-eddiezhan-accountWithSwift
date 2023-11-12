@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D215EE482B01020E00B8048B /* GroupCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215EE472B01020E00B8048B /* GroupCardView.swift */; };
 		D28A9C9C2AFA604C00E52F21 /* PandaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A9C9B2AFA604C00E52F21 /* PandaApp.swift */; };
 		D28A9C9E2AFA604C00E52F21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A9C9D2AFA604C00E52F21 /* ContentView.swift */; };
 		D28A9CA02AFA604F00E52F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28A9C9F2AFA604F00E52F21 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D215EE472B01020E00B8048B /* GroupCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardView.swift; sourceTree = "<group>"; };
 		D28A9C982AFA604C00E52F21 /* Panda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Panda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28A9C9B2AFA604C00E52F21 /* PandaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PandaApp.swift; sourceTree = "<group>"; };
 		D28A9C9D2AFA604C00E52F21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				D2BE34A02AFD32800044028A /* ExpensesView.swift */,
 				D2BE349E2AFD32770044028A /* CategorysView.swift */,
 				D2BE34A42AFE4FCC0044028A /* AddExpenseView.swift */,
+				D215EE472B01020E00B8048B /* GroupCardView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				D2BE34A52AFE4FCC0044028A /* AddExpenseView.swift in Sources */,
 				D2BE34972AFD2A8C0044028A /* Expense.swift in Sources */,
 				D2BE34A32AFD37600044028A /* GroupedExpenses.swift in Sources */,
+				D215EE482B01020E00B8048B /* GroupCardView.swift in Sources */,
 				D2BE349F2AFD32770044028A /* CategorysView.swift in Sources */,
 				D2BE34992AFD2C760044028A /* Category.swift in Sources */,
 				D28A9C9E2AFA604C00E52F21 /* ContentView.swift in Sources */,

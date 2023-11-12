@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GroupedExpenses {
+struct GroupedExpenses: Identifiable {
     var id: UUID = .init()
     var date: Date
     var expenses: [Expense]

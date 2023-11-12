@@ -24,4 +24,10 @@ class Expense {
         self.date = date
         self.category = category
     }
+    @Transient
+    var currentAmount: String{
+        let formatter = NumberFormatter()
+        formatter.numberStyle  = .currency
+        return formatter.string(from: NSNumber(value: amount)) ?? ""
+    }
 }
